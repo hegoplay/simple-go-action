@@ -26,7 +26,7 @@ jobs:
       - name: Install packages
         run: |
           sudo apt update
-          sudo apt install lua
+          sudo apt install lua5.4
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
   process:
@@ -45,3 +45,8 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+  report-url:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Report URL
+        run: echo $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
